@@ -1,7 +1,17 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ClockHeading from "./components/ClockHeading";
+import ClockSlogan from "./components/ClockSlogan";
+import CurrentTime from "./components/CurrentTime";
 
 function App() {
-  return <div>Clock</div>;
+  return (
+    <center>
+      <ClockHeading />
+      <ClockSlogan />
+      <CurrentTime />
+    </center>
+  );
 }
 
 export default App;
