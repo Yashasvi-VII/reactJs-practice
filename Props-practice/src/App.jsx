@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <h1>Healthy Food Restraunt</h1>
-      <ErrorMessage />
-      <FoodItems />
+      <ErrorMessage items={foodItems} />
+      <FoodItems items={foodItems} />
     </>
   );
 }
