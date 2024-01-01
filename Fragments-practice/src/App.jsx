@@ -1,21 +1,16 @@
 import React from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  let foodItems = ["Dal", "GreenVegetables", "Roti", "Salad", "Milk"];
-
-  // UI code is not dependent on number of foodItems
   return (
     <React.Fragment>
       <h1>Healthy Food</h1>
-      <ul className="list-group">
-        {foodItems.map((item) => (
-          <li key={item} className="list-group-item">
-            {item}
-          </li>
-        ))}
+      <ul class="list-group">
+        <li class="list-group-item">First Item</li>
+        <li class="list-group-item">Second Item</li>
+        <li class="list-group-item">Third Item</li>
+        <li class="list-group-item">Fourth Item</li>
       </ul>
     </React.Fragment>
   );
