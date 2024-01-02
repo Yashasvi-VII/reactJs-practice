@@ -1,16 +1,21 @@
 import "./App.css";
 import AddTodo from "./components/AddTodo";
 import TodoName from "./components/TodoName";
-import TodoItem from "./components/TodoItem";
+import TodoItems from "./components/TodoItems";
 function App() {
+  const todoItems = [
+    { name: "BuyMilk", dueDate: "03/04/2022" },
+    { name: "BuyBadam", dueDate: "03/04/2022" },
+    { name: "BuyKaju", dueDate: "03/04/2022" },
+  ];
   return (
-    <center className="todo-container">
-      <TodoName />
-      <AddTodo />
-      <TodoItem TodoName="Birthday!" TodoDate="03/04/2022"></TodoItem>
-      <TodoItem TodoName="Birthday!" TodoDate="03/04/2022"></TodoItem>
-      <TodoItem TodoName="Birthday!" TodoDate="03/04/2022"></TodoItem>
-    </center>
+    <>
+      <center className="todo-container">
+        <TodoName />
+        <AddTodo />
+        <TodoItems todoItems={todoItems} />
+      </center>
+    </>
   );
 }
 
