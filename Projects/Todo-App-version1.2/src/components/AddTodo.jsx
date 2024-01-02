@@ -1,14 +1,19 @@
+import styles from "./AddTodo.module.css";
 const AddTodo = () => {
   return (
     <div className="container text-center">
       <div className="row kg-row">
         <div className="col-6">
-          <input type="text" placeholder="Enter TODO here " />
+          <input
+            className={styles.inputText}
+            type="text"
+            placeholder="Enter TODO here "
+          />
         </div>
-        <div className="col-4">
+        <div className="col-3">
           <input type="date" />
         </div>
-        <div className="col-2">
+        <div className="col-3">
           <button type="button" className="btn btn-success kg-button">
             Add
           </button>
