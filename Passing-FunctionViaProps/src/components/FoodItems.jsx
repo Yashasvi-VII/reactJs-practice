@@ -6,7 +6,7 @@ const FoodItems = ({ items }) => {
         <Item
           key={item}
           foodItem={item}
-          handleBuyButton={() => console.log("clicked")}
+          handleBuyButton={() => console.log(`${item} Bought`)}
         ></Item>
       ))}
     </ul>
