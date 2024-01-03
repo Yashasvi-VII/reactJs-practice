@@ -7,7 +7,7 @@ const Item = (props) => {
       <span className={styles["demo-span"]}>{foodItem}</span>
       <button
         className={`${styles.button} btn btn-info`}
-        onClick={() => console.log("Button Clicked")}
+        onClick={() => console.log(`${foodItem} Being Clicked`)}
       >
         Buy
       </button>
