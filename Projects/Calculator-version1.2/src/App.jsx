@@ -6,12 +6,15 @@ function App() {
   const [calVal, setCalval] = useState("");
   const onButtonClick = (buttonText) => {
     if (buttonText === "C") {
+      setCalval("");
     } else if (buttonText === "=") {
+      const result = eval(calVal);
+      setCalval(result);
     } else {
       let newVal = calVal + buttonText;
       setCalval(newVal);
     }
-    console.log(buttonText);
+    // console.log(buttonText);
   };
   return (
     <div className={styles.calculator}>
