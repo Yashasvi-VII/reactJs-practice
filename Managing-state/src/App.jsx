@@ -7,30 +7,27 @@ import Container from "./components/Container";
 import FoodInput from "./components/FoodInput";
 import { useState } from "react";
 function App() {
-  let foodItems = ["Dal", "Salad", "Green Vegetables", "Milk"];
-  let textStateArr = useState("Food Item Entered by User");
-  let TextToShow = textStateArr[0];
-  let setTextState = textStateArr[1];
-  console.log(`current value of text state: ${TextToShow}`);
+  let [foodItems, setFoodItems] = useState([]);
 
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
-    setTextState(event.target.value);
+  const onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      let newFoodItem = event.target.value;
+      event.target.value = "";
+      let newItems = [...foodItems, newFoodItem];
+      setFoodItems(newItems);
+      console.log(`Food Value entered is:${newFoodItem}`);
+    }
   };
 
   return (
     <>
       <Container>
         <h1 className="foodHeading">Healthy Food Restraunt</h1>
-        <FoodInput handleOnChange={handleOnChange} />
-        <p>{TextToShow}</p>
-        {/* This is painted once!! only , it gets updated but will show text after app is called  */}
+        <FoodInput handleKeyDown={onKeyDown} />
+
         <ErrorMessage items={foodItems} />
         <FoodItems items={foodItems} />
       </Container>
-      {/* <Container>
-        <p>Above is list of healty food that are good for your well being</p>
-      </Container> */}
     </>
   );
 }
