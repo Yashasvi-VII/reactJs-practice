@@ -1,6 +1,7 @@
 import styles from "./Item.module.css";
 const Item = (props) => {
-  const handleBuyButtonClicked = (foodItem) => {
+  const handleBuyButtonClicked = (event) => {
+    console.log(event);
     console.log(`${foodItem} Being Clicked`);
   };
 
@@ -11,7 +12,7 @@ const Item = (props) => {
       <span className={styles["demo-span"]}>{foodItem}</span>
       <button
         className={`${styles.button} btn btn-info`}
-        onClick={() => handleBuyButtonClicked(foodItem)}
+        onClick={(event) => handleBuyButtonClicked(event)}
       >
         Buy
       </button>
