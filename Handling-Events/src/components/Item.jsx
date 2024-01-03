@@ -1,5 +1,9 @@
 import styles from "./Item.module.css";
 const Item = (props) => {
+  const handleBuyButtonClicked = (foodItem) => {
+    console.log(`${foodItem} Being Clicked`);
+  };
+
   // object destructuring
   let { foodItem } = props;
   return (
@@ -7,7 +11,7 @@ const Item = (props) => {
       <span className={styles["demo-span"]}>{foodItem}</span>
       <button
         className={`${styles.button} btn btn-info`}
-        onClick={() => console.log(`${foodItem} Being Clicked`)}
+        onClick={() => handleBuyButtonClicked(foodItem)}
       >
         Buy
       </button>
