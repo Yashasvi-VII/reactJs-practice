@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <Container>
-        <h1 className="foodHeading">Healthy Food Restraunt</h1>
+        <h1 className="foodHeading">Healthy Food Restaurant</h1>
         <FoodInput handleKeyDown={onKeyDown} />
 
         <ErrorMessage items={foodItems} />
