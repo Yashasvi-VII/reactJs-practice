@@ -1,0 +1,12 @@
+.demo-item {
+  background-color: khaki;
+}
+
+.demo-span {
+  font-weight: 500;
+  color: red;
+}
+
+.button {
+  float: right;
+}
