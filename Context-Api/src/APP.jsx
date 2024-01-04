@@ -29,11 +29,8 @@ function App() {
       <center className="todo-container">
         <TodoName />
         <AddTodo onNewItem={handleNewItem} />
-        <WelcomeMessage todoItem={todoItem} />
-        <TodoItems
-          todoItems={todoItem}
-          onDeleteClick={handleDeleteItem}
-        ></TodoItems>
+        <WelcomeMessage />
+        <TodoItems onDeleteClick={handleDeleteItem}></TodoItems>
       </center>
     </TodoItemsContext.Provider>
   );
