@@ -4,16 +4,33 @@ import TodoName from "./components/TodoName";
 import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomMessage";
 import { TodoItemsContext } from "./store/Todo-items-store";
-import { useState } from "react";
+import { useState, useReducer } from "react";
+
+const todoItemReducer = (currTodoItem, action) => {
+  let newTodoItems = currTodoItem;
+  if (action.type === "NEW_ITEM") {
+    newTodoItems = [
+      ...currTodoItem,
+      { name: action.payload.itemName, dueDate: action.payload.itemDueDate },
+    ];
+  } else if (action.type === "DELETE_ITEM") {
+  }
+  return newTodoItems;
+};
+
 function App() {
-  const [todoItem, setTodoItem] = useState([]);
+  //const [todoItem, setTodoItem] = useState([]);
+  const [todoItem, dispatchTodoItem] = useReducer(todoItemReducer, []);
 
   const addNewItem = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItem,
-      { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItem(newTodoItems);
+    const newItemAction = {
+      type: "NEW_ITEM",
+      payload: {
+        itemName,
+        itemDueDate,
+      },
+    };
+    dispatchTodoItem(newItemAction);
   };
 
   const deleteItem = (todoItemName) => {
