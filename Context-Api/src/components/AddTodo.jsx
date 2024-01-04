@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./AddTodo.module.css";
+import { TodoItemsContext } from "../store/Todo-items-store";
+
 const AddTodo = ({ onNewItem }) => {
+  const { addNewItem } = useContext(TodoItemsContext);
   const [TodoName, setTodoName] = useState();
   const [DueDate, setDueDate] = useState();
 
@@ -13,7 +16,7 @@ const AddTodo = ({ onNewItem }) => {
   };
 
   const handleAddButtonClicked = () => {
-    onNewItem(TodoName, DueDate);
+    addNewItem(TodoName, DueDate);
     setDueDate("");
     setTodoName("");
   };

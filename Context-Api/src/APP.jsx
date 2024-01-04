@@ -8,7 +8,7 @@ import { useState } from "react";
 function App() {
   const [todoItem, setTodoItem] = useState([]);
 
-  const handleNewItem = (itemName, itemDueDate) => {
+  const addNewItem = (itemName, itemDueDate) => {
     const newTodoItems = [
       ...todoItem,
       { name: itemName, dueDate: itemDueDate },
@@ -16,7 +16,7 @@ function App() {
     setTodoItem(newTodoItems);
   };
 
-  const handleDeleteItem = (todoItemName) => {
+  const deleteItem = (todoItemName) => {
     const newTodoItems = todoItem.filter((item) => item.name !== todoItemName);
     setTodoItem(newTodoItems);
     console.log(todoItemName);
@@ -25,12 +25,18 @@ function App() {
   const defaultTodoItem = [{ name: "Buy Ghee", dueDate: "Today" }];
 
   return (
-    <TodoItemsContext.Provider value={defaultTodoItem}>
+    <TodoItemsContext.Provider
+      value={{
+        todoItems: todoItem,
+        addNewItem: addNewItem,
+        deleteItem: deleteItem,
+      }}
+    >
       <center className="todo-container">
         <TodoName />
-        <AddTodo onNewItem={handleNewItem} />
+        <AddTodo />
         <WelcomeMessage />
-        <TodoItems onDeleteClick={handleDeleteItem}></TodoItems>
+        <TodoItems />
       </center>
     </TodoItemsContext.Provider>
   );
