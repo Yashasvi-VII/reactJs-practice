@@ -14,6 +14,9 @@ const todoItemReducer = (currTodoItem, action) => {
       { name: action.payload.itemName, dueDate: action.payload.itemDueDate },
     ];
   } else if (action.type === "DELETE_ITEM") {
+    newTodoItems = currTodoItem.filter(
+      (item) => item.name !== action.payload.itemName
+    );
   }
   return newTodoItems;
 };
@@ -34,8 +37,13 @@ function App() {
   };
 
   const deleteItem = (todoItemName) => {
-    const newTodoItems = todoItem.filter((item) => item.name !== todoItemName);
-    setTodoItem(newTodoItems);
+    const deleteItemAction = {
+      type: "DELETE_ITEM",
+      payload: {
+        itemName: todoItemName,
+      },
+    };
+    dispatchTodoItem(deleteItemAction);
   };
 
   const defaultTodoItem = [{ name: "Buy Ghee", dueDate: "Today" }];
