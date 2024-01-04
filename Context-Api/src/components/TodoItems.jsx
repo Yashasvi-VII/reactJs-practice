@@ -3,10 +3,9 @@ import TodoItem from "./TodoItem";
 import styles from "./TodoItems.module.css";
 import { TodoItemsContext } from "../store/Todo-items-store";
 
-const TodoItems = ({ todoItems, onDeleteClick }) => {
-  const todoItemsfromContext = useContext(TodoItemsContext);
-  console.log(todoItemsfromContext);
-  todoItems.dueDate;
+const TodoItems = ({ onDeleteClick }) => {
+  const todoItems = useContext(TodoItemsContext);
+  console.log(todoItems);
   return (
     <div className={styles.itemsContainer}>
       {todoItems.map((item) => (
@@ -17,9 +16,6 @@ const TodoItems = ({ todoItems, onDeleteClick }) => {
           onDeleteClick={onDeleteClick}
         ></TodoItem>
       ))}
-      {/* <TodoItem TodoName="Birthday!" TodoDate={todoItems.dueDate}></TodoItem>
-      <TodoItem TodoName="Birthday!" TodoDate="03/04/2022"></TodoItem>
-      <TodoItem TodoName="Birthday!" TodoDate="03/04/2022"></TodoItem> */}
     </div>
   );
 };
