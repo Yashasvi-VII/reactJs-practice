@@ -19,7 +19,6 @@ function App() {
   const deleteItem = (todoItemName) => {
     const newTodoItems = todoItem.filter((item) => item.name !== todoItemName);
     setTodoItem(newTodoItems);
-    console.log(todoItemName);
   };
 
   const defaultTodoItem = [{ name: "Buy Ghee", dueDate: "Today" }];
