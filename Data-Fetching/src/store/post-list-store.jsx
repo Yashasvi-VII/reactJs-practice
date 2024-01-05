@@ -3,6 +3,7 @@ import { createContext, useReducer } from "react";
 const DEFAULT_CONTEXT = {
   postList: [],
   addPost: () => {},
+  addInitialPosts: () => {},
   deletePost: () => {},
 };
 // Api/contract desiging
@@ -16,15 +17,23 @@ const postListReducer = (currPostList, action) => {
     );
   } else if (action.type === "ADD_POST") {
     newPostList = [action.payload, ...currPostList];
+  } else if (action.type === "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
   }
   return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST
-  );
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
+
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+        posts: posts,
+      },
+    });
+  };
 
   const addPost = (userId, postTitle, postBody, reactions, tags) => {
     dispatchPostList({
@@ -39,7 +48,6 @@ const PostListProvider = ({ children }) => {
       },
     });
   };
-
   const deletePost = (postId) => {
     dispatchPostList({
       type: "DELETE_POST",
@@ -51,30 +59,16 @@ const PostListProvider = ({ children }) => {
 
   return (
     <PostList.Provider
-      value={{ postList: postList, addPost: addPost, deletePost: deletePost }}
+      value={{
+        postList: postList,
+        addPost: addPost,
+        addInitialPosts: addInitialPosts,
+        deletePost: deletePost,
+      }}
     >
       {children}
     </PostList.Provider>
   );
 };
-
-const DEFAULT_POST_LIST = [
-  {
-    id: "1",
-    title: "Going to Mumbai",
-    body: "hi friends i am going to mumbai For my vacations. Hope to enjoy a lot.",
-    reactions: 10,
-    userId: "user-9",
-    tags: ["vacation", "Mumbai", "Enjoy"],
-  },
-  {
-    id: "2",
-    title: "Going to bangalore",
-    body: "hi friends i am going to bangalore For my vacations. Hope to enjoy a lot.",
-    reactions: 15,
-    userId: "user-12",
-    tags: ["vacation", "bangalore", "Enjoy"],
-  },
-];
 
 export default PostListProvider;
