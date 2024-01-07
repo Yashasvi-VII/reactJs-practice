@@ -50,9 +50,6 @@ const Header = () => {
           </div>
 
           <div className="action_container">
-            {/* <span className="material-symbols-outlined action_icon">
-              shopping_bag
-            </span> */}
             <Link className="action_container" to="/bag">
               <GiShoppingBag />
               <span className="action_name">Bag</span>
