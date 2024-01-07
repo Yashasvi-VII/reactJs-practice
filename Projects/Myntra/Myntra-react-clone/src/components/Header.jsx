@@ -1,3 +1,6 @@
+import { IoMdPerson, IoMdHeart } from "react-icons/io";
+import { GiShoppingBag } from "react-icons/gi";
+
 const Header = () => {
   return (
     <>
@@ -30,23 +33,26 @@ const Header = () => {
         </div>
         <div className="action_bar">
           <div className="action_container">
-            <span className="material-symbols-outlined action_icon">
+            {/* <span className="material-symbols-outlined action_icon">
               person
-            </span>
+            </span> */}
+            <IoMdPerson />
             <span className="action_name">Profile</span>
           </div>
 
           <div className="action_container">
-            <span className="material-symbols-outlined action_icon">
+            {/* <span className="material-symbols-outlined action_icon">
               favorite
-            </span>
+            </span> */}
+            <IoMdHeart />
             <span className="action_name">Wishlist</span>
           </div>
 
           <div className="action_container">
-            <span className="material-symbols-outlined action_icon">
+            {/* <span className="material-symbols-outlined action_icon">
               shopping_bag
-            </span>
+            </span> */}
+            <GiShoppingBag />
             <span className="action_name">Bag</span>
             <span className="bag-item-count">0</span>
           </div>
