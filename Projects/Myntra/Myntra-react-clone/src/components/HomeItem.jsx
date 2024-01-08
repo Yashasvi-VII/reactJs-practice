@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 const HomeItem = ({ item }) => {
+  const bagItems = useSelector((store) => store.bag);
   return (
     <div className="item-container">
       <img className="item-image" src={item.image} alt="item image" />
