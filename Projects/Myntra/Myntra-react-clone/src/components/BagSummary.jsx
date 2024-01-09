@@ -17,6 +17,8 @@ const BagSummary = ({}) => {
     totalDiscount += bagItem.original_price - bagItem.current_price;
   });
 
+  console.log("finalItems", finalItems);
+
   let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
 
   return (
