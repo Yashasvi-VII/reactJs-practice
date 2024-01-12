@@ -22,6 +22,7 @@ const BagItem = ({ item }) => {
           <span className="discount-percentage">
             ({item.discount_percentage}% OFF)
           </span>
+          <a></a>
         </div>
         <div className="return-period">
           <span className="return-period-days">{item.return_period} days</span>{" "}
